@@ -64,9 +64,9 @@ void getState(const String &payload)
   Serial.print("GetState called");
 }
 
-void openDoor()
+void closeDoor()
 {
-  Serial.print("Opening coop door");
+  Serial.print("Closing coop door");
 
   // disengage the motor while we change state
   digitalWrite(DOOR_MOTOR_ENABLE_PIN, LOW);
@@ -77,18 +77,18 @@ void openDoor()
   // re-enable the motor
   digitalWrite(DOOR_MOTOR_ENABLE_PIN, HIGH);
 
-  client.publish(TOPIC_STATE, DOOR_STATE_OPEN, true);
+  client.publish(TOPIC_STATE, DOOR_STATE_CLOSED, true);
 }
 
-void closeDoor()
+void openDoor()
 {
-  Serial.print("Closing coop door");
+  Serial.print("Opening coop door");
 
   digitalWrite(DOOR_MOTOR_ENABLE_PIN, LOW);
   digitalWrite(DOOR_MOTOR_P1_PIN, LOW);
   digitalWrite(DOOR_MOTOR_P2_PIN, LOW);
 
-  client.publish(TOPIC_STATE, DOOR_STATE_CLOSED, true);
+  client.publish(TOPIC_STATE, DOOR_STATE_OPEN, true);
 }
 
 void handleCommand(const String &payload)
