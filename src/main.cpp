@@ -3,8 +3,8 @@
 #include <ESP8266WiFi.h>
 #include <ArduinoOTA.h>
 
-const char *ssid = "HAPPYNET";
-const char *password = "***REMOVED***";
+const char *ssid = "SSID";
+const char *password = "your-password";
 const char *mqttServer = "10.1.1.150";
 const int mqttPort = 1883;
 const char *mqttUser = "";
